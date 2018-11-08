@@ -92,7 +92,6 @@
 
 						//Cambios de colores en las provincias
 						var pathMapaProv = "g > a >path#" + datosProvinciales[i][0].replace(/_/g , "-" );
-						//jQuery( pathMapaProv ).removeClass();
 						jQuery( pathMapaProv ).attr("class", "");
 						var cssClassProv = "";
 						if( this.id == "porcusrmayor")
@@ -103,9 +102,7 @@
 						{
 							cssClassProv = datosProvinciales[i][3];
 						}
-						//jQuery( pathMapaProv ).addClass(cssClassProv);
 						jQuery( pathMapaProv ).attr("class", cssClassProv);
-
 					}
                 });  
             },
@@ -425,9 +422,9 @@
           { key:"usocasco", title : "Uso del casco *", icon : "icono-arg-casco", description : '% de motos que circulan con todos sus ocupantes utilizando el casco', ranges : '[[49.9,"bajo"],[74.9,"medio"],[100.0,"alto"]]' },
           { key:"usocinturon", title : "Uso del cinturón de seguridad *", icon : "icono-arg-cinturon-seguridad", description : '% de autos que circulan con todos sus ocupantes utilizando el cinturón de seguridad' , ranges : '[[39.9,"bajo"],[59.9,"medio"],[100.0,"alto"]]' },
           { key:"usosri", title : "Uso de SRI (sillita) *", icon : "icono-arg-silla-seguridad-auto" , description : '% de niños entre 0 y 4 años que viajan en asientos traseros utilizando el Sistema de Retención Infantil (SRI)' , ranges : '[[46.9,"bajo"],[100.0,"alto"]]' },
-          { key:"vicfatalmasc", title : "Víctimas fatales hombre **", icon : "icono-arg-hombre" , description : '% de hombres del total de las víctimas fatales por siniestros de tránsito' , ranges : '[[74.1,"bajo"],[100.0,"alto"]]' },
+          { key:"vicfatalmasc", title : "Víctimas fatales hombre **", icon : "icono-arg-hombre" , description : '% de hombres del total de las víctimas fatales por siniestros de tránsito' , ranges : '[[74.1,"bajomedio"],[100.0,"altoalto"]]' },
           { key:"vicfatalfem", title : "Víctimas fatales mujer **", icon : "icono-arg-mujer" , description : '% de mujeres del total de las víctimas fatales por siniestros de tránsito' , ranges : '[[25.9,"bajo"],[100.0,"alto"]]' },
-          { key:"rangoetario", title : "Rango etario **", icon : "icono-arg-familia-02" , description : 'Rango etario que concentra la mayor proporción de víctimas fatales' , ranges : '[["5-14","bajo"],["15-24","alto"],["25-34","medio"],["35-44","bajomedio"],["45-54","medioalto"],["55-64","altoalto"]]' },
+          { key:"rangoetario", title : "Rango etario **", icon : "icono-arg-familia-02" , description : 'Rango etario que concentra la mayor proporción de víctimas fatales' , ranges : '[["5-14","bajo"],["15-24","medio"],["25-34","alto"],["35-44","bajomedio"],["45-54","medioalto"],["55-64","altoalto"]]' },
 		  { key:"porcusrmayor", title : "Usuarios de la vía **", icon : "icono-arg-auto" , description : 'Tipo de vehículo que concentra la mayor proporción de víctimas fatales' , ranges : "[]" },
           { key:"usrmayor", title : "Usuarios de la vía **", icon : "icono-arg-motocicleta-lineal" , description : 'Tipo de vehículo que concentra la mayor proporción de víctimas fatales' , ranges : '[["moto","bajo"],["auto","alto"]]' }, // Motocicleta o auto
 		  { key:"mayorzonaocurrencia", title : "Zona de ocurrencia del siniestro **", icon : "icono-arg-marcador-ubicacion-1" , description : 'Área que concentra la mayor proporción de víctimas fatales', ranges : '[["Rural","bajo"],["Rural/Urbano","medio"],["Urbano","alto"]]' },
