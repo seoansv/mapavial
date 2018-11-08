@@ -93,14 +93,16 @@
 						//Cambios de colores en las provincias
 						var pathMapaProv = "g > a >path#" + datosProvinciales[i][0].replace(/_/g , "-" );
 						jQuery( pathMapaProv ).removeClass();
+						var cssClassProv = "";
 						if( this.id == "porcusrmayor")
 						{
-							jQuery( pathMapaProv ).addClass(datosProvinciales[indexPorcUsrMayor][3]);
+							cssClassProv = datosProvinciales[indexPorcUsrMayor][3];
 						}
 						else
 						{
-							jQuery( pathMapaProv ).addClass(datosProvinciales[i][3]);
+							cssClassProv = datosProvinciales[i][3];
 						}
+						jQuery( pathMapaProv ).addClass(cssClassProv);
 
 					}
                 });  
