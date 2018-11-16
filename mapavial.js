@@ -79,10 +79,7 @@
 						
 						if( this.id == "porcusrmayor")
 						{
-							indexPorcUsrMayor = i;
 							var veh = datosProvincialesVeh[i][2];
-							//var tpl =`<tspan class='icono-botonera'>${var2icono[veh]}</tspan>`;
-							//text.html( tpl + " " + datosProvinciales[i][2] );
 							text.html( var2Veh[veh] );
 						}
 						else
@@ -94,14 +91,15 @@
 						var pathMapaProv = "g > a >path#" + datosProvinciales[i][0].replace(/_/g , "-" );
 						jQuery( pathMapaProv ).attr("class", "");
 						var cssClassProv = "";
+						/*
 						if( this.id == "porcusrmayor")
 						{
-							cssClassProv = datosProvinciales[indexPorcUsrMayor][3];
+							cssClassProv = datosProvinciales[6][3];
 						}
 						else
-						{
+						{*/
 							cssClassProv = datosProvinciales[i][3];
-						}
+						//}
 						jQuery( pathMapaProv ).attr("class", cssClassProv);
 					}
                 });  
@@ -133,21 +131,27 @@
 			}	
 		}
 		
+		const leyenda = 'Ver estadísticas viales de '
 		//Configura cada anchor perteneciente a la provincia para que se ejecute el pop-up
 		var pathProvincias = jQuery('g > a > path');
 		for (var i = 0; i < pathProvincias.length; i++) {
 		  var pathProv = pathProvincias[i];
 		  var anchorProv =   pathProv.parentElement;
 		  var idLnkProv = "lnk-" + pathProv.id;
-		  console.log( "Link provincia : " + idLnkProv); 
+		  //console.log( "Link provincia : " + idLnkProv); 
 		  anchorProv.setAttribute("id", idLnkProv );
 		  anchorProv.setAttribute( "href", "#" );
 		  anchorProv.setAttribute( "class", "" );
 		  anchorProv.setAttribute( "data-toggle", "modal" );
 		  anchorProv.setAttribute( "data-target", "#modal-provincia" );
 		  
-		  //console.log( pathProv.parentElement.id); 
-        }
+		  var titleSvg = pathProv. getElementsByTagName('title')[0];
+		  if ( !(titleSvg === undefined)){
+			var currentTitle =  titleSvg.textContent;
+		  	//console.log( "Title:" + currentTitle);	
+		  	titleSvg.textContent = leyenda + currentTitle;			
+			}
+		}
       }
 	  
 	  //Detecta el nombre que se halla en las etiqueta y devuelve la clave de busqueda por provincia
@@ -244,7 +248,8 @@
 			return this.mapRange( numValueVar, ranges,'sin-datos');
 		  }
 		  
-		  if( nameVar == 'usrmayor' || nameVar == 'mayorzonaocurrencia' || nameVar == 'rangoetario' )
+		  if( nameVar == 'usrmayor' || nameVar == 'mayorzonaocurrencia' ||
+				 nameVar == 'rangoetario' )
 		  {
 			return this.mapEqual( valueVar, ranges, 'sin-datos');
 		  }
@@ -425,7 +430,7 @@
           { key:"vicfatalmasc", title : "Víctimas fatales hombre **", icon : "icono-arg-hombre" , description : '% de hombres del total de las víctimas fatales por siniestros de tránsito' , ranges : '[[74.1,"bajomedio"],[100.0,"altoalto"]]' },
           { key:"vicfatalfem", title : "Víctimas fatales mujer **", icon : "icono-arg-mujer" , description : '% de mujeres del total de las víctimas fatales por siniestros de tránsito' , ranges : '[[25.9,"bajo"],[100.0,"alto"]]' },
           { key:"rangoetario", title : "Rango etario **", icon : "icono-arg-familia-02" , description : 'Rango etario que concentra la mayor proporción de víctimas fatales' , ranges : '[["5-14","bajo"],["15-24","medio"],["25-34","alto"],["35-44","bajomedio"],["45-54","medioalto"],["55-64","altoalto"]]' },
-		  { key:"porcusrmayor", title : "Usuarios de la vía **", icon : "icono-arg-auto" , description : 'Tipo de vehículo que concentra la mayor proporción de víctimas fatales' , ranges : "[]" },
+		  { key:"porcusrmayor", title : "Usuarios de la vía **", icon : "icono-arg-auto" , description : 'Tipo de vehículo que concentra la mayor proporción de víctimas fatales' , ranges : '[["moto","bajo"],["auto","alto"]]' },
           { key:"usrmayor", title : "Usuarios de la vía **", icon : "icono-arg-motocicleta-lineal" , description : 'Tipo de vehículo que concentra la mayor proporción de víctimas fatales' , ranges : '[["moto","bajo"],["auto","alto"]]' }, // Motocicleta o auto
 		  { key:"mayorzonaocurrencia", title : "Zona de ocurrencia del siniestro **", icon : "icono-arg-marcador-ubicacion-1" , description : 'Área que concentra la mayor proporción de víctimas fatales', ranges : '[["Rural","bajo"],["Rural/Urbano","medio"],["Urbano","alto"]]' },
           { key:"tasavictfatales2017", title : "Tasa de mortalidad **", icon : "icono-arg-lazo-lineal" , description : 'Víctimas fatales cada 100.000 habitantes' , ranges : '[[12.2,"bajo"],[24.3,"medio"],[100.0,"alto"]]' }
