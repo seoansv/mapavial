@@ -360,6 +360,7 @@
         var nameVar = infoVar.key;
         var icono = infoVar.icon;
         var classHValue = 'h1';
+	var showValue = this[nameVar];      
 
         if(nameVar == 'usrmayor')
           return '';
@@ -373,6 +374,7 @@
           //this[nameVar] = 'Sin datos';
 		  this[nameVar] = '';
           classHValue = 'sin-datos';
+	  showValue = "***"; 	
         }
 
         return `<div class="col-xs-12 col-sm-6 col-md-4">
