@@ -385,7 +385,7 @@
 							<i id="${icono}" class= "${ icono + ' icono-3x text-secondary'}"></i>
 						</div>
 						<div class="media-body">
-							<div class="${classHValue} text-gray' }"> ${ this[nameVar]  }</div>												
+							<div class="${classHValue} text-gray' }"> ${ showValue  }</div>												
 						</div>
 					</div>
 					
