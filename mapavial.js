@@ -370,7 +370,7 @@
         	icono = 'icono-arg-moticicleta-lineal'; //	'icono-arg-auto';
         }
 		
-        if( this[nameVar] == '-1' || this[nameVar] == 'Sin datos'  ) { 
+        if( this[nameVar] == '-1' || this[nameVar] == 'Sin datos' || this[nameVar] == ''  ) { 
           //this[nameVar] = 'Sin datos';
 		  this[nameVar] = '';
           classHValue = 'sin-datos';
